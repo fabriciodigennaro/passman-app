@@ -1,0 +1,14 @@
+<div class="modal-backdrop">
+  <div class="modal">
+    <h2>Create password</h2>
+
+    <input placeholder="Name" [(ngModel)]="name" />
+    <input placeholder="Username" [(ngModel)]="username" />
+    <input placeholder="Password" [(ngModel)]="password" type="password" />
+
+    <div class="actions">
+      <button (click)="save()">Save</button>
+      <button (click)="close()">Cancel</button>
+    </div>
+  </div>
+</div>

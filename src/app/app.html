@@ -1,9 +1,25 @@
-<div class="container">
-  <button (click)="generateRandom()">Generar número</button>
-  @if (randomNumber !== null) {
-  <p>
-    Número: {{ randomNumber }}
-  </p>
-  }
+<header>
+  <button (click)="openCreate()">Create</button>
+  <button (click)="view = 'stored'">Generate</button>
+</header>
+@if (view === 'stored') {
+<main>
+  <ul>
+    @for ( password of passwords; track $index) {
 
-</div>
+    <li (click)="select(password)">
+      {{ password.name }}
+    </li>
+    }
+  </ul>
+  @if (selected) {
+
+  <div class="details">
+    <p><strong>User:</strong> {{ selected.username }}</p>
+    <p><strong>Password:</strong> {{ selected.password }}</p>
+  </div>
+  }
+</main>
+} @if (showModal) {
+<app-create-modal (closed)="closeModal()"> </app-create-modal>
+}
